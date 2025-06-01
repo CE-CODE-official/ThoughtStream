@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThoughtStream</title>
+    <h1>
+      Your place to share ideas and improvements for just about ANYTHING!
+  </h1>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Search Ideas/Categories</h1>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Filter ideas or topics...">
+            <button id="search-go-btn">Go</button>
+            <div id="search-suggestions" class="search-suggestions"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="username-modal" class="modal">
+            <div class="modal-content">
+                <h2>Choose Your Username</h2>
+                <p>This will be displayed with your ideas.</p>
+                <input type="text" id="username-input" placeholder="Enter desired username" required>
+                <button id="set-username-btn">Set Username</button>
+                <p id="username-error" class="error-message"></p>
+            </div>
+        </div>
+
+        <div id="main-content" style="display: none;">
+            <h2>Share Your Ideas!</h2>
+
+            <div class="topic-selection">
+                <label for="topic-select">Choose Topic:</label>
+                <select id="topic-select">
+                    <option value="">-- Select or Create New --</option>
+                </select>
+                <input type="text" id="new-topic-input" placeholder="Or create new topic...">
+                <button id="create-topic-btn">Create Topic</button>
+                <p id="topic-error" class="error-message"></p>
+            </div>
+
+            <form id="idea-form">
+                <p>Posting as: <strong id="current-username-display"></strong></p>
+                <textarea id="idea-input" placeholder="Type your idea here..." rows="4" required></textarea>
+                <button type="submit">Post Idea</button>
+            </form>
+
+            <div id="ideas-by-topic">
+                <h2>Topics and Ideas</h2>
+                <p id="no-topics-message">No topics yet. Create the first one!</p>
+                </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="/client.js"></script>
+</body>
+</html>

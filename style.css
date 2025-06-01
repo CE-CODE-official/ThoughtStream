@@ -1,0 +1,358 @@
+/* public/style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0 0 10px 0;
+    font-size: 1.8em;
+}
+
+/* Search Container and Button */
+.search-container {
+    display: flex;
+    gap: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative; /* For positioning suggestions */
+}
+
+#search-input {
+    flex-grow: 1;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+#search-go-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#search-go-btn:hover {
+    background-color: #218838;
+}
+
+/* Search Suggestions */
+.search-suggestions {
+    position: absolute;
+    top: 100%; /* Position below the search input */
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100; /* Ensure it's above other content */
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+    margin-top: 5px; /* Small gap below search bar */
+}
+
+.search-suggestions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.search-suggestions li {
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: left; /* Align text within suggestions */
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.search-suggestions li:last-child {
+    border-bottom: none;
+}
+
+.search-suggestions li:hover {
+    background-color: #f0f0f0;
+}
+
+.search-suggestions .suggestion-type {
+    font-size: 0.8em;
+    color: #666;
+    margin-left: 5px;
+}
+
+/* Existing styles below (copy-paste the rest of your original style.css here) */
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px; /* Slightly wider for topics */
+    box-sizing: border-box;
+    margin: 20px auto; /* Center the container below the header */
+    flex-grow: 1; /* Allow container to take available space */
+}
+
+h1, h2 {
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+/* Username Modal */
+.modal {
+    display: flex; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    color: #007bff;
+}
+
+#username-input, #set-username-btn {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+#username-input {
+    border: 1px solid #ddd;
+}
+
+#set-username-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#set-username-btn:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+
+/* Topic Selection */
+.topic-selection {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.topic-selection label {
+    font-weight: bold;
+    margin-right: 5px;
+    flex-shrink: 0; /* Prevent label from shrinking */
+}
+
+#topic-select, #new-topic-input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    flex-grow: 1; /* Allow input/select to take available space */
+}
+
+#create-topic-btn {
+    background-color: #17a2b8; /* Info blue */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+#create-topic-btn:hover {
+    background-color: #138496;
+}
+
+/* Idea Form */
+#idea-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+#idea-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: vertical;
+    box-sizing: border-box;
+}
+
+#idea-input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+button[type="submit"] {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #218838;
+}
+
+/* Ideas by Topic Section */
+#ideas-by-topic {
+    margin-top: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.topic-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 1px solid #cce5ff;
+    border-radius: 8px;
+    background-color: #e9f5ff;
+}
+
+.topic-section h3 {
+    margin-top: 0;
+    color: #007bff;
+    border-bottom: 1px solid #a8d7ff;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: 1.4em;
+    cursor: pointer; /* To indicate it's collapsible */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topic-section h3 .toggle-icon {
+    font-size: 0.8em;
+    margin-left: 10px;
+}
+
+.topic-ideas-list {
+    margin-left: 20px;
+    padding-left: 10px;
+    border-left: 2px solid #a8d7ff;
+}
+
+.idea-item {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.idea-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.idea-meta {
+    font-size: 0.85em;
+    color: #666;
+    text-align: right;
+}
+
+.idea-meta span {
+    font-weight: bold;
+    color: #555;
+}
+
+#no-topics-message, #no-ideas-message {
+    text-align: center;
+    color: #888;
+    margin-top: 30px;
+}
+
+/* Hide message if content exists */
+#ideas-by-topic:has(.topic-section) #no-topics-message {
+    display: none;
+}
+/* This is a simple filtering, a true search would be server-side */
+.hidden-by-filter {
+    display: none !important;
+}
